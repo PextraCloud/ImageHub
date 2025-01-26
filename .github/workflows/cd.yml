@@ -1,0 +1,37 @@
+name: Release
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run script
+        run: python main.py
+
+      - name: Create tag
+        run: |
+          git config --local user.name "Release Bot"
+          git config --local user.email "noreply@example.com"
+
+          tag_name="v$(date +'%Y.%m.%d')"
+          git tag -a $tag_name -m "chore(release): $tag_name [skip ci]"
+          git push origin $tag_name
+          echo "tag_name=$tag_name" >> "$GITHUB_ENV"
+
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          makeLatest: latest
+          artifacts: output/*
+          tag: ${{ env.tag_name }}

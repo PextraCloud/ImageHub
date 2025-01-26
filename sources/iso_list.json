@@ -1,0 +1,65 @@
+[
+	{
+		"name": "Ubuntu Server LTS",
+		"description": "Ubuntu Server LTS is the most popular Linux distribution for servers.",
+		"versions": ["24.04.1"],
+		"architectures": ["amd64", "arm64"],
+		"url_format": "https://cdimage.ubuntu.com/releases/{version}/release/ubuntu-{version}-live-server-{arch}.iso",
+		"url_format_amd64": "https://releases.ubuntu.com/{version}/ubuntu-{version}-live-server-{arch}.iso"
+	},
+	{
+		"name": "Debian Stable",
+		"description": "Debian Stable is a popular Linux distribution for servers.",
+		"versions": ["12.9.0"],
+		"architectures": ["amd64", "arm64"],
+		"url_format": "https://cdimage.debian.org/debian-cd/{version}/{arch}/iso-dvd/debian-{version}-{arch}-DVD-1.iso"
+	},
+	{
+		"name": "CentOS Stream",
+		"description": "CentOS Stream is a rolling-release Linux distribution.",
+		"versions": ["10", "9"],
+		"architectures": ["x86_64", "aarch64"],
+		"url_format": "https://mirrors.centos.org/mirrorlist?path=/{version}-stream/BaseOS/{arch}/iso/CentOS-Stream-{version}-latest-{arch}-dvd1.iso&redirect=1&protocol=https"
+	},
+	{
+		"name": "Fedora Server",
+		"description": "Fedora Server is a cutting-edge Linux distribution.",
+		"versions": ["41"],
+		"long_versions": ["41-1.4"],
+		"architectures": ["x86_64", "aarch64"],
+		"url_format": "https://download.fedoraproject.org/pub/fedora/linux/releases/{version}/Server/{arch}/iso/Fedora-Server-dvd-{arch}-{long_version}.iso"
+	},
+	{
+		"name": "openSUSE Leap",
+		"description": "openSUSE Leap is a stable Linux distribution.",
+		"versions": ["15.6"],
+		"architectures": ["x86_64", "aarch64"],
+		"url_format": "https://download.opensuse.org/distribution/leap/{version}/iso/openSUSE-Leap-{version}-DVD-{arch}-Media.iso",
+		"requirements": {
+			"cpu": 2,
+			"memory": 2048,
+			"disk": 50
+		}
+	},
+	{
+		"name": "openSUSE Tumbleweed",
+		"description": "openSUSE Tumbleweed is a rolling-release Linux distribution.",
+		"versions": ["Current"],
+		"architectures": ["x86_64", "aarch64"],
+		"url_format": "https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-{arch}-{version}.iso",
+		"url_format_aarch64": "https://download.opensuse.org/ports/{arch}/tumbleweed/iso/openSUSE-Tumbleweed-DVD-{arch}-{version}.iso",
+		"requirements": {
+			"cpu": 2,
+			"memory": 2048,
+			"disk": 50
+		}
+	},
+	{
+		"name": "Alpine Linux",
+		"description": "Alpine Linux is a lightweight Linux distribution.",
+		"versions": ["3.21"],
+		"long_versions": ["3.21.2"],
+		"architectures": ["x86_64", "aarch64"],
+		"url_format": "https://dl-cdn.alpinelinux.org/alpine/v{version}/releases/{arch}/alpine-standard-{long_version}-{arch}.iso"
+	}
+]
