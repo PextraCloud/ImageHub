@@ -2,7 +2,7 @@
 
 [![Release](https://github.com/PextraCloud/ImageHub/actions/workflows/cd.yml/badge.svg)](https://github.com/PextraCloud/ImageHub/actions/workflows/cd.yml)
 
-### Access the image library [in the Pextra CloudEnvironment® web UI](https://docs.pextra.cloud/TODO) or visit [ImageHub™ directly](https://imagehub.pextra.cloud/).
+### Access the image library [in the Pextra CloudEnvironment® web UI](https://docs.pextra.cloud/TODO) or visit [ImageHub™ directly](https://pextra.cloud/imagehub).
 ### If you would like to request an image, please [open an issue](https://github.com/PextraCloud/ImageHub/issues) or [start a discussion](https://github.com/PextraCloud/ImageHub/discussions).
 ---
 
