@@ -91,12 +91,12 @@ class IsoImage(TypedDict):
 class IsoList(TypedDict):
 	iso_images: list[IsoImage]
 def build_iso_list(iso_list: IsoList):
-	iso_imgs = {}
+	iso_imgs = []
 	for iso in iso_list:
 		iso_name = iso["name"]
 
 		print(f"\nBuilding list for {iso_name}...")
-		iso_imgs[iso_name] = {
+		iso_img = {
 			"name": iso_name,
 			"description": iso["description"],
 			"requirements": iso.get("requirements", {}),
@@ -106,7 +106,7 @@ def build_iso_list(iso_list: IsoList):
 		for i, version in enumerate(iso["versions"]):
 			long_version = iso["long_versions"][i] if "long_versions" in iso else version
 
-			iso_imgs[iso_name]["downloads"][version] = {}
+			iso_img["downloads"][version] = {}
 			for architecture in iso["architectures"]:
 				print(f"\tProbing {version} ({architecture})...", end='')
 				probe_payload: ProbeIsoImagePayload = {
@@ -117,8 +117,9 @@ def build_iso_list(iso_list: IsoList):
 				}
 
 				probed_iso = probe_image(probe_payload)
-				iso_imgs[iso_name]["downloads"][version][architecture] = probed_iso
+				iso_img["downloads"][version][architecture] = probed_iso
 
+		iso_imgs.append(iso_img)
 	return {
 		"iso_images": iso_imgs
 	}
