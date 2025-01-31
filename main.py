@@ -82,12 +82,25 @@ class IsoImageRequirements(TypedDict):
 class IsoImage(TypedDict):
 	name: str
 	description: str
+	image: str
 	versions: list[str]
 	long_versions: list[str] # optional
 	architectures: list[str]
 	url_format: str
 	# url_format_{arch} can be used to override url_format for specific architectures
 	requirements: IsoImageRequirements # optional
+
+def download_image(iso: IsoImage):
+	image_ext = os.path.splitext(iso["image"])[1]
+	image_path = f"output/images/{iso['name'].replace(' ', '_')}{image_ext}"
+	print(f"\tDownloading image to {image_path}...")
+
+	with requests.get(iso["image"], stream=True) as r:
+		r.raise_for_status()
+		with open(image_path, 'wb') as f:
+			for chunk in r.iter_content(chunk_size=8192):
+				f.write(chunk)
+
 class IsoList(TypedDict):
 	iso_images: list[IsoImage]
 def build_iso_list(iso_list: IsoList):
@@ -99,10 +112,12 @@ def build_iso_list(iso_list: IsoList):
 		iso_img = {
 			"name": iso_name,
 			"description": iso["description"],
+			"image": iso["image"],
 			"requirements": iso.get("requirements", {}),
 			"downloads": {}
 		}
 
+		download_image(iso)
 		for i, version in enumerate(iso["versions"]):
 			long_version = iso["long_versions"][i] if "long_versions" in iso else version
 

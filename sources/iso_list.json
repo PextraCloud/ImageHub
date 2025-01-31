@@ -2,6 +2,7 @@
 	{
 		"name": "Ubuntu Server LTS",
 		"description": "Ubuntu Server LTS is the most popular Linux distribution for servers.",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/7/76/Ubuntu-logo-2022.svg",
 		"versions": ["24.04.1"],
 		"architectures": ["amd64", "arm64"],
 		"url_format": "https://cdimage.ubuntu.com/releases/{version}/release/ubuntu-{version}-live-server-{arch}.iso",
@@ -10,12 +11,14 @@
 	{
 		"name": "Debian Stable",
 		"description": "Debian Stable is a popular Linux distribution for servers.",
+		"image": "https://www.debian.org/logos/openlogo.svg",
 		"versions": ["12.9.0"],
 		"architectures": ["amd64", "arm64"],
 		"url_format": "https://cdimage.debian.org/debian-cd/{version}/{arch}/iso-dvd/debian-{version}-{arch}-DVD-1.iso"
 	},
 	{
 		"name": "CentOS Stream",
+		"image": "https://raw.githubusercontent.com/CentOS/centos-logos/refs/heads/c10/fedora/fedora_logo.svg",
 		"description": "CentOS Stream is a rolling-release Linux distribution.",
 		"versions": ["10", "9"],
 		"architectures": ["x86_64", "aarch64"],
@@ -23,6 +26,7 @@
 	},
 	{
 		"name": "Fedora Server",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Fedora_logo_%282021%29.svg",
 		"description": "Fedora Server is a cutting-edge Linux distribution.",
 		"versions": ["41", "40", "39"],
 		"long_versions": ["41-1.4", "40-1.14", "39-1.5"],
@@ -32,6 +36,7 @@
 	{
 		"name": "openSUSE Leap",
 		"description": "openSUSE Leap is a stable Linux distribution.",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/7/72/OpenSUSE_Leap_green_logo.svg",
 		"versions": ["15.6", "15.5"],
 		"architectures": ["x86_64", "aarch64"],
 		"url_format": "https://download.opensuse.org/distribution/leap/{version}/iso/openSUSE-Leap-{version}-DVD-{arch}-Media.iso",
@@ -44,6 +49,7 @@
 	{
 		"name": "Alpine Linux",
 		"description": "Alpine Linux is a lightweight Linux distribution.",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Alpine_Linux.svg",
 		"versions": ["3.21", "3.20", "3.19", "3.18"],
 		"long_versions": ["3.21.2", "3.20.5", "3.19.6", "3.18.9"],
 		"architectures": ["x86_64", "aarch64"],
