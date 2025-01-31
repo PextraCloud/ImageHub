@@ -42,19 +42,6 @@
 		}
 	},
 	{
-		"name": "openSUSE Tumbleweed",
-		"description": "openSUSE Tumbleweed is a rolling-release Linux distribution.",
-		"versions": ["Current"],
-		"architectures": ["x86_64", "aarch64"],
-		"url_format": "https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-{arch}-{version}.iso",
-		"url_format_aarch64": "https://download.opensuse.org/ports/{arch}/tumbleweed/iso/openSUSE-Tumbleweed-DVD-{arch}-{version}.iso",
-		"requirements": {
-			"cpu": 2,
-			"memory": 2048,
-			"disk": 50
-		}
-	},
-	{
 		"name": "Alpine Linux",
 		"description": "Alpine Linux is a lightweight Linux distribution.",
 		"versions": ["3.21"],
