@@ -91,11 +91,15 @@ class IsoImage(TypedDict):
 	requirements: IsoImageRequirements # optional
 
 def download_image(iso: IsoImage):
+	headers = {
+		'User-Agent': "Mozilla/5.0 (Windows NT 10.0; rv:131.0) Gecko/20100101 Firefox/131.0"
+	}
+
 	image_ext = os.path.splitext(iso["image"])[1]
 	image_path = f"output/images/{iso['name'].replace(' ', '_')}{image_ext}"
 	print(f"\tDownloading image to {image_path}...")
 
-	with requests.get(iso["image"], stream=True) as r:
+	with requests.get(iso["image"], stream=True, headers=headers) as r:
 		r.raise_for_status()
 		with open(image_path, 'wb') as f:
 			for chunk in r.iter_content(chunk_size=8192):
