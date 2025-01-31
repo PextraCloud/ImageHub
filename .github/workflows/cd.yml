@@ -33,5 +33,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           makeLatest: latest
-          artifacts: output/*
+          artifacts: |
+            output/library.json
+            output/images/*
           tag: ${{ env.tag_name }}
