@@ -24,15 +24,15 @@
 	{
 		"name": "Fedora Server",
 		"description": "Fedora Server is a cutting-edge Linux distribution.",
-		"versions": ["41"],
-		"long_versions": ["41-1.4"],
+		"versions": ["41", "40", "39"],
+		"long_versions": ["41-1.4", "40-1.14", "39-1.5"],
 		"architectures": ["x86_64", "aarch64"],
 		"url_format": "https://download.fedoraproject.org/pub/fedora/linux/releases/{version}/Server/{arch}/iso/Fedora-Server-dvd-{arch}-{long_version}.iso"
 	},
 	{
 		"name": "openSUSE Leap",
 		"description": "openSUSE Leap is a stable Linux distribution.",
-		"versions": ["15.6"],
+		"versions": ["15.6", "15.5"],
 		"architectures": ["x86_64", "aarch64"],
 		"url_format": "https://download.opensuse.org/distribution/leap/{version}/iso/openSUSE-Leap-{version}-DVD-{arch}-Media.iso",
 		"requirements": {
@@ -44,8 +44,8 @@
 	{
 		"name": "Alpine Linux",
 		"description": "Alpine Linux is a lightweight Linux distribution.",
-		"versions": ["3.21"],
-		"long_versions": ["3.21.2"],
+		"versions": ["3.21", "3.20", "3.19", "3.18"],
+		"long_versions": ["3.21.2", "3.20.5", "3.19.6", "3.18.9"],
 		"architectures": ["x86_64", "aarch64"],
 		"url_format": "https://dl-cdn.alpinelinux.org/alpine/v{version}/releases/{arch}/alpine-standard-{long_version}-{arch}.iso"
 	}
