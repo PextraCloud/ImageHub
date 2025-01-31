@@ -16,12 +16,12 @@ from urllib.parse import urlparse
 
 from typing import TypedDict
 
-def open_file(file_path: str):
+def open_file(file_path: str, mode='w'):
 	directory = os.path.dirname(file_path)
 
 	if not os.path.exists(directory):
 		os.makedirs(directory)
-	return open(file_path, 'w')
+	return open(file_path, mode)
 
 def read_sources():
 	with open('sources/iso_list.json') as json_file:
@@ -101,7 +101,7 @@ def download_image(iso: IsoImage):
 
 	with requests.get(iso["image"], stream=True, headers=headers) as r:
 		r.raise_for_status()
-		with open(image_path, 'wb') as f:
+		with open_file(image_path, 'wb') as f:
 			for chunk in r.iter_content(chunk_size=8192):
 				f.write(chunk)
 
