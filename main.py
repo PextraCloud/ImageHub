@@ -95,8 +95,10 @@ def download_image(iso: IsoImage):
 		'User-Agent': "Mozilla/5.0 (Windows NT 10.0; rv:131.0) Gecko/20100101 Firefox/131.0"
 	}
 
+	image_name = iso['name'].replace(' ', '_')
+
 	image_ext = os.path.splitext(iso["image"])[1]
-	image_path = f"output/images/{iso['name'].replace(' ', '_')}{image_ext}"
+	image_path = f"output/images/{image_name}{image_ext}"
 	print(f"\tDownloading image to {image_path}...")
 
 	with requests.get(iso["image"], stream=True, headers=headers) as r:
@@ -104,6 +106,8 @@ def download_image(iso: IsoImage):
 		with open_file(image_path, 'wb') as f:
 			for chunk in r.iter_content(chunk_size=8192):
 				f.write(chunk)
+
+	return f"{image_name}{image_ext}"
 
 class IsoList(TypedDict):
 	iso_images: list[IsoImage]
@@ -116,12 +120,11 @@ def build_iso_list(iso_list: IsoList):
 		iso_img = {
 			"name": iso_name,
 			"description": iso["description"],
-			"image": iso["image"],
+			"image": download_image(iso),
 			"requirements": iso.get("requirements", {}),
 			"downloads": {}
 		}
 
-		download_image(iso)
 		for i, version in enumerate(iso["versions"]):
 			long_version = iso["long_versions"][i] if "long_versions" in iso else version
 
